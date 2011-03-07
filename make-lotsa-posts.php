@@ -10,6 +10,8 @@ Author: Mihai Chereji
 function make_lotsa_posts()
 {
 	if(get_option('made_lotsa_posts') != true){
+		for($i = 0; $i <= 99; $i++)
+		{
 			$param_array = array('decorate','link','ul','ol','dl','bq','code','headers');
 			$paragraph_no = mt_rand(1,10);
 			$lengths = array('short','medium','long','verylong');
@@ -34,7 +36,7 @@ function make_lotsa_posts()
 					$title .= $words[$title_start + $i - 1] . ' ';
 			}
 			
-			echo $random;
+//			echo $random;
 			if(current_user_can('edit_posts')){
 				global $current_user;
 				$info = get_currentuserinfo();
@@ -50,7 +52,9 @@ function make_lotsa_posts()
 				wp_insert_post($params,true);
 			}
 		}
+		update_option('made_lotsa_posts',true);
+	}
 }
 
-//add_action('init','make_lotsa_posts');
+add_action('init','make_lotsa_posts');
 ?>
