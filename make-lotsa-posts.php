@@ -10,7 +10,7 @@ Author: Mihai Chereji
 function make_lotsa_posts()
 {
 	if(get_option('made_lotsa_posts') != true){
-		for($i = 0; $i <= 99; $i++)
+		for($j = 0; $j <= 99; $j++)
 		{
 			$param_array = array('decorate','link','ul','ol','dl','bq','code','headers');
 			$paragraph_no = mt_rand(1,10);
